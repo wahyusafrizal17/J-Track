@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Penjualan;
 use App\Models\Barang;
+use App\Models\Stok;
 
 class PenjualanController extends Controller
 {
@@ -45,8 +46,16 @@ class PenjualanController extends Controller
             'total' => 'required|numeric',
             'tanggal' => 'required|date',
         ]);
-        Penjualan::create($validated + [
+        $penjualan = Penjualan::create($validated + [
             'keterangan' => $request->keterangan
+        ]);
+        // Tambah record stok keluar
+        Stok::create([
+            'barang_id' => $validated['barang_id'],
+            'tipe' => 'keluar',
+            'jumlah' => $validated['jumlah'],
+            'keterangan' => 'Penjualan ID: ' . $penjualan->id,
+            'tanggal' => $validated['tanggal'],
         ]);
         return redirect()->route('penjualans.index')->with('success', 'Data penjualan berhasil ditambahkan');
     }

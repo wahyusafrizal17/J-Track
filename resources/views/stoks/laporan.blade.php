@@ -38,7 +38,7 @@
                                                 <th>Nama</th>
                                                 <th>Masuk</th>
                                                 <th>Keluar</th>
-                                                <th>Saldo</th>
+                                                <th>Sisa Stok</th>
                                             </tr>
                                         </thead>
                                         <tbody>
