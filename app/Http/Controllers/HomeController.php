@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Barang;
+use App\Models\Stok;
 
 class HomeController extends Controller
 {
@@ -23,6 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $totalPetugas = User::count();
+        $totalBarang = Barang::count();
+        $totalStok = Stok::sum('jumlah');
+        return view('welcome', compact('totalPetugas', 'totalBarang', 'totalStok'));
     }
 }

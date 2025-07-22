@@ -22,9 +22,7 @@ use App\Http\Controllers\StokController;
 use App\Http\Controllers\PenjualanController;
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', function () {
-        return view('welcome');
-    });
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
     Route::resource('users', 'App\Http\Controllers\UsersController');
     Route::post('users/delete', 'App\Http\Controllers\UsersController@delete')->name('users.delete');
