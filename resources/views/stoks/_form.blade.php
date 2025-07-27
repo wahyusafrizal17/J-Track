@@ -9,7 +9,7 @@
     <div class="form-group row mt-2">
         <label class="col-sm-2 col-form-label">Tipe</label>
         <div class="col-sm-10">
-            {{ Form::select('tipe', ['masuk'=>'Masuk'], null, ['class'=>'form-control']) }}
+            {{ Form::select('tipe', ['masuk'=>'Masuk','keluar'=>'Keluar'], null, ['class'=>'form-control']) }}
             @if ($errors->has('tipe')) <span class="help-block" style="color:red">{{ $errors->first('tipe') }}</span> @endif
         </div>
     </div>

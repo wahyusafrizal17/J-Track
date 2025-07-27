@@ -15,7 +15,7 @@ class StokController extends Controller
      */
     public function index()
     {
-        $stoks = Stok::with('barang')->get();
+        $stoks = Stok::with('barang')->where('tipe', 'masuk')->get();
         return view('stoks.index', compact('stoks'));
     }
 

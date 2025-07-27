@@ -61,7 +61,7 @@
                                                 <td>{{ $penjualan->pembayaran }}</td>
                                                 <td class="text-center">
                                                     <div class="form-button-action">
-                                                        <a href="{{ route('penjualans.show', $penjualan->id) }}" class="btn btn-link btn-info btn-sm" title="Detail"><i data-feather='info'></i></a>
+                                                        {{-- <a href="{{ route('penjualans.show', $penjualan->id) }}" class="btn btn-link btn-info btn-sm" title="Detail"><i data-feather='info'></i></a> --}}
                                                         <a href="{{ route('penjualans.edit', $penjualan->id) }}" class="btn btn-link btn-warning btn-sm" title="Edit"><i data-feather='edit'></i></a>
                                                         <form action="{{ route('penjualans.destroy', $penjualan->id) }}" method="POST" style="display:inline-block">
                                                             @csrf

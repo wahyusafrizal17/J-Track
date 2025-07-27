@@ -59,7 +59,7 @@
                                                 <td>{{ $barang->stok_minimal }}</td>
                                                 <td class="text-center">
                                                     <div class="form-button-action">
-                                                        <a href="{{ route('barangs.show', $barang->id) }}" class="btn btn-link btn-info btn-sm" title="Detail"><i data-feather='info'></i></a>
+                                                        {{-- <a href="{{ route('barangs.show', $barang->id) }}" class="btn btn-link btn-info btn-sm" title="Detail"><i data-feather='info'></i></a> --}}
                                                         <a href="{{ route('barangs.edit', $barang->id) }}" class="btn btn-link btn-warning btn-sm" title="Edit"><i data-feather='edit'></i></a>
                                                         <form action="{{ route('barangs.destroy', $barang->id) }}" method="POST" style="display:inline-block">
                                                             @csrf
