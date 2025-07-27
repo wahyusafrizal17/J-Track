@@ -41,9 +41,9 @@
                                             <tr>
                                                 <th style="width: 5%">No</th>
                                                 <th>Barang</th>
+                                                <th>Tanggal</th>
                                                 <th>Tipe</th>
                                                 <th>Jumlah</th>
-                                                <th>Tanggal</th>
                                                 <th>Kadaluarsa</th>
                                                 <th style="width: 20%" class="text-center">Aksi</th>
                                             </tr>
@@ -53,9 +53,9 @@
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $stok->barang->nama ?? '-' }}</td>
+                                                <td>{{ $stok->tanggal }}</td>
                                                 <td>{{ ucfirst($stok->tipe) }}</td>
                                                 <td>{{ $stok->jumlah }}</td>
-                                                <td>{{ $stok->tanggal }}</td>
                                                 <td>{{ $stok->kadaluarsa }}</td>
                                                 <td class="text-center">
                                                     <div class="form-button-action">
