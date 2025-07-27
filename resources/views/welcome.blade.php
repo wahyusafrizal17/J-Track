@@ -25,14 +25,6 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="card text-center">
                         <div class="card-body">
-                            <h4 class="card-title">Total Petugas</h4>
-                            <h2>{{ $totalPetugas }}</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="card text-center">
-                        <div class="card-body">
                             <h4 class="card-title">Total Barang</h4>
                             <h2>{{ $totalBarang }}</h2>
                         </div>
@@ -41,8 +33,16 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="card text-center">
                         <div class="card-body">
-                            <h4 class="card-title">Total Stok</h4>
-                            <h2>{{ $totalStok }}</h2>
+                            <h4 class="card-title">Omset</h4>
+                            <h2>Rp {{ number_format($omset,0,',','.') }}</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h4 class="card-title">Stok Masuk</h4>
+                            <h2>{{ $stokMasuk }}</h2>
                         </div>
                     </div>
                 </div>

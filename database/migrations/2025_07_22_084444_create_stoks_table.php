@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('barang_id')->constrained('barangs')->onDelete('cascade');
             $table->enum('tipe', ['masuk', 'keluar']);
             $table->integer('jumlah');
-            $table->string('keterangan')->nullable();
+            $table->date('kadaluwarsa')->nullable();
             $table->date('tanggal');
             $table->timestamps();
         });

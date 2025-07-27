@@ -20,7 +20,7 @@ return new class extends Migration
             $table->decimal('harga_jual', 15, 2);
             $table->decimal('total', 15, 2);
             $table->date('tanggal');
-            $table->string('keterangan')->nullable();
+            $table->string('pembayaran')->nullable();
             $table->timestamps();
         });
     }

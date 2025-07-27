@@ -47,7 +47,7 @@ class PenjualanController extends Controller
             'tanggal' => 'required|date',
         ]);
         $penjualan = Penjualan::create($validated + [
-            'keterangan' => $request->keterangan
+            'pembayaran' => $request->pembayaran
         ]);
         // Tambah record stok keluar
         Stok::create([
@@ -103,7 +103,7 @@ class PenjualanController extends Controller
             'tanggal' => 'required|date',
         ]);
         $penjualan->update($validated + [
-            'keterangan' => $request->keterangan
+            'pembayaran' => $request->pembayaran
         ]);
         return redirect()->route('penjualans.index')->with('success', 'Data penjualan berhasil diupdate');
     }

@@ -10,7 +10,7 @@ class Stok extends Model
     use HasFactory;
 
     protected $fillable = [
-        'barang_id', 'tipe', 'jumlah', 'keterangan', 'tanggal'
+        'barang_id', 'tipe', 'jumlah', 'kadaluwarsa', 'tanggal'
     ];
 
     public function barang()

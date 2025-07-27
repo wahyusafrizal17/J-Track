@@ -28,10 +28,10 @@
         </div>
     </div>
     <div class="form-group row mt-2">
-        <label class="col-sm-2 col-form-label">Keterangan</label>
+        <label class="col-sm-2 col-form-label">Kadaluwarsa</label>
         <div class="col-sm-10">
-            {{ Form::text('keterangan',null,['class'=>'form-control','placeholder'=>'Keterangan']) }}
-            @if ($errors->has('keterangan')) <span class="help-block" style="color:red">{{ $errors->first('keterangan') }}</span> @endif
+            {{ Form::date('kadaluwarsa',null,['class'=>'form-control']) }}
+            @if ($errors->has('kadaluwarsa')) <span class="help-block" style="color:red">{{ $errors->first('kadaluwarsa') }}</span> @endif
         </div>
     </div>
 </div>

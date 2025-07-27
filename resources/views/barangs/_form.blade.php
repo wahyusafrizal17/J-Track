@@ -1,9 +1,9 @@
 <div class="card-body">
     <div class="form-group row mt-2">
-        <label class="col-sm-2 col-form-label">Kode</label>
+        <label class="col-sm-2 col-form-label">Kategori</label>
         <div class="col-sm-10">
-            {{ Form::text('kode',null,['class'=>'form-control','placeholder'=>'Kode']) }}
-            @if ($errors->has('kode')) <span class="help-block" style="color:red">{{ $errors->first('kode') }}</span> @endif
+            {{ Form::text('kategori',null,['class'=>'form-control','placeholder'=>'Kategori']) }}
+            @if ($errors->has('kategori')) <span class="help-block" style="color:red">{{ $errors->first('kategori') }}</span> @endif
         </div>
     </div>
     <div class="form-group row mt-2">

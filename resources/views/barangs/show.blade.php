@@ -4,7 +4,7 @@
 <div class="container mt-3">
     <h1>Detail Barang</h1>
     <table class="table table-bordered">
-        <tr><th>Kode</th><td>{{ $barang->kode }}</td></tr>
+        <tr><th>Kategori</th><td>{{ $barang->kategori }}</td></tr>
         <tr><th>Nama</th><td>{{ $barang->nama }}</td></tr>
         <tr><th>Deskripsi</th><td>{{ $barang->deskripsi }}</td></tr>
         <tr><th>Harga</th><td>{{ number_format($barang->harga,0,',','.') }}</td></tr>

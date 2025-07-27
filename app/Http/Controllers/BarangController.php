@@ -37,7 +37,7 @@ class BarangController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'kode' => 'required|unique:barangs',
+            'kategori' => 'required',
             'nama' => 'required',
             'harga' => 'required|numeric',
             'satuan' => 'required',
@@ -84,7 +84,7 @@ class BarangController extends Controller
     {
         $barang = Barang::findOrFail($id);
         $validated = $request->validate([
-            'kode' => 'required|unique:barangs,kode,' . $id,
+            'kategori' => 'required',
             'nama' => 'required',
             'harga' => 'required|numeric',
             'satuan' => 'required',

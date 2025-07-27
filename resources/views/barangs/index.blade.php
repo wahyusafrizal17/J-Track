@@ -40,7 +40,7 @@
                                         <thead>
                                             <tr>
                                                 <th style="width: 5%">No</th>
-                                                <th>Kode</th>
+                                                <th>Kategori</th>
                                                 <th>Nama</th>
                                                 <th>Harga</th>
                                                 <th>Satuan</th>
@@ -52,7 +52,7 @@
                                             @foreach($barangs as $barang)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $barang->kode }}</td>
+                                                <td>{{ $barang->kategori }}</td>
                                                 <td>{{ $barang->nama }}</td>
                                                 <td>{{ number_format($barang->harga,0,',','.') }}</td>
                                                 <td>{{ $barang->satuan }}</td>

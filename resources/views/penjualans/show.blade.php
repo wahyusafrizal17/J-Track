@@ -33,7 +33,7 @@
                                     <tr><th>Harga Jual</th><td>{{ number_format($penjualan->harga_jual,0,',','.') }}</td></tr>
                                     <tr><th>Total</th><td>{{ number_format($penjualan->total,0,',','.') }}</td></tr>
                                     <tr><th>Tanggal</th><td>{{ $penjualan->tanggal }}</td></tr>
-                                    <tr><th>Keterangan</th><td>{{ $penjualan->keterangan }}</td></tr>
+                                    <tr><th>Pembayaran</th><td>{{ $penjualan->pembayaran }}</td></tr>
                                 </table>
                                 <a href="{{ route('penjualans.index') }}" class="btn btn-secondary">Kembali</a>
                             </div>
