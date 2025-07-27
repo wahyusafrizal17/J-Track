@@ -56,7 +56,7 @@
                                                 <td>{{ $stok->tanggal }}</td>
                                                 <td>{{ ucfirst($stok->tipe) }}</td>
                                                 <td>{{ $stok->jumlah }}</td>
-                                                <td>{{ $stok->kadaluarsa }}</td>
+                                                <td>{{ $stok->kadaluwarsa }}</td>
                                                 <td class="text-center">
                                                     <div class="form-button-action">
                                                         {{-- <a href="{{ route('stoks.show', $stok->id) }}" class="btn btn-link btn-info btn-sm" title="Detail"><i data-feather='info'></i></a> --}}
