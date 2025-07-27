@@ -43,11 +43,9 @@ class StokController extends Controller
             'tipe' => 'required|in:masuk,keluar',
             'jumlah' => 'required|integer',
             'tanggal' => 'required|date',
-            'kadaluarsa' => 'date',
+            'kadaluwarsa' => 'date',
         ]);
-        Stok::create($validated + [
-            'keterangan' => $request->keterangan
-        ]);
+        Stok::create($validated);
         return redirect()->route('stoks.index')->with('success', 'Data stok berhasil ditambahkan');
     }
 
@@ -91,7 +89,7 @@ class StokController extends Controller
             'tipe' => 'required|in:masuk,keluar',
             'jumlah' => 'required|integer',
             'tanggal' => 'required|date',
-            'kadaluarsa' => 'date',
+            'kadaluwarsa' => 'date',
         ]);
         $stok->update($validated + [
             'keterangan' => $request->keterangan
