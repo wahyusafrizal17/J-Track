@@ -40,11 +40,11 @@
                                         <thead>
                                             <tr>
                                                 <th style="width: 5%">No</th>
+                                                <th>Tanggal</th>
                                                 <th>Barang</th>
                                                 <th>Jumlah</th>
                                                 <th>Harga Jual</th>
                                                 <th>Total</th>
-                                                <th>Tanggal</th>
                                                 <th>Pembayaran</th>
                                                 <th style="width: 20%" class="text-center">Aksi</th>
                                             </tr>
@@ -53,11 +53,11 @@
                                             @foreach($penjualans as $penjualan)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $penjualan->tanggal }}</td>
                                                 <td>{{ $penjualan->barang->nama ?? '-' }}</td>
                                                 <td>{{ $penjualan->jumlah }}</td>
                                                 <td>{{ number_format($penjualan->harga_jual,0,',','.') }}</td>
                                                 <td>{{ number_format($penjualan->total,0,',','.') }}</td>
-                                                <td>{{ $penjualan->tanggal }}</td>
                                                 <td>{{ $penjualan->pembayaran }}</td>
                                                 <td class="text-center">
                                                     <div class="form-button-action">

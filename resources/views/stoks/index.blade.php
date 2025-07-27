@@ -40,8 +40,8 @@
                                         <thead>
                                             <tr>
                                                 <th style="width: 5%">No</th>
-                                                <th>Barang</th>
                                                 <th>Tanggal</th>
+                                                <th>Barang</th>
                                                 <th>Tipe</th>
                                                 <th>Jumlah</th>
                                                 <th>Kadaluarsa</th>
@@ -52,8 +52,8 @@
                                             @foreach($stoks as $stok)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $stok->barang->nama ?? '-' }}</td>
                                                 <td>{{ $stok->tanggal }}</td>
+                                                <td>{{ $stok->barang->nama ?? '-' }}</td>
                                                 <td>{{ ucfirst($stok->tipe) }}</td>
                                                 <td>{{ $stok->jumlah }}</td>
                                                 <td>{{ $stok->kadaluwarsa }}</td>
