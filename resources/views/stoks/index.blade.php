@@ -44,7 +44,7 @@
                                                 <th>Tipe</th>
                                                 <th>Jumlah</th>
                                                 <th>Tanggal</th>
-                                                <th>Keterangan</th>
+                                                <th>Kadaluarsa</th>
                                                 <th style="width: 20%" class="text-center">Aksi</th>
                                             </tr>
                                         </thead>
@@ -56,7 +56,7 @@
                                                 <td>{{ ucfirst($stok->tipe) }}</td>
                                                 <td>{{ $stok->jumlah }}</td>
                                                 <td>{{ $stok->tanggal }}</td>
-                                                <td>{{ $stok->keterangan }}</td>
+                                                <td>{{ $stok->kadaluarsa }}</td>
                                                 <td class="text-center">
                                                     <div class="form-button-action">
                                                         <a href="{{ route('stoks.show', $stok->id) }}" class="btn btn-link btn-info btn-sm" title="Detail"><i data-feather='info'></i></a>

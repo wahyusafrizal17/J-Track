@@ -45,7 +45,7 @@
                                                 <th>Harga Jual</th>
                                                 <th>Total</th>
                                                 <th>Tanggal</th>
-                                                <th>Keterangan</th>
+                                                <th>Pembayaran</th>
                                                 <th style="width: 20%" class="text-center">Aksi</th>
                                             </tr>
                                         </thead>
@@ -58,7 +58,7 @@
                                                 <td>{{ number_format($penjualan->harga_jual,0,',','.') }}</td>
                                                 <td>{{ number_format($penjualan->total,0,',','.') }}</td>
                                                 <td>{{ $penjualan->tanggal }}</td>
-                                                <td>{{ $penjualan->keterangan }}</td>
+                                                <td>{{ $penjualan->pembayaran }}</td>
                                                 <td class="text-center">
                                                     <div class="form-button-action">
                                                         <a href="{{ route('penjualans.show', $penjualan->id) }}" class="btn btn-link btn-info btn-sm" title="Detail"><i data-feather='info'></i></a>
