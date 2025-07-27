@@ -128,7 +128,7 @@
                     <li class="nav-item {!!(Request::is('stoks*')) ? ' active' : '' !!}">
                         <a class="d-flex align-items-center" href="{{ route('stoks.index') }}">
                             <i data-feather="archive"></i>
-                            <span class="menu-title text-truncate">Stok</span>
+                            <span class="menu-title text-truncate">Input Stok</span>
                         </a>
                     </li>
                     <li class="nav-item {!!(Request::is('penjualans*')) ? ' active' : '' !!}">
