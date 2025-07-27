@@ -34,7 +34,7 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Kode</th>
+                                                <th>Kategori</th>
                                                 <th>Nama</th>
                                                 <th>Total Jumlah</th>
                                                 <th>Total Penjualan</th>
@@ -44,7 +44,7 @@
                                             @foreach($laporan as $row)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $row->barang->kode ?? '-' }}</td>
+                                                <td>{{ $row->barang->kategori ?? '-' }}</td>
                                                 <td>{{ $row->barang->nama ?? '-' }}</td>
                                                 <td>{{ $row->total_jumlah }}</td>
                                                 <td>{{ number_format($row->total_penjualan,0,',','.') }}</td>
