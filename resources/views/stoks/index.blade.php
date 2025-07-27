@@ -59,7 +59,7 @@
                                                 <td>{{ $stok->kadaluarsa }}</td>
                                                 <td class="text-center">
                                                     <div class="form-button-action">
-                                                        <a href="{{ route('stoks.show', $stok->id) }}" class="btn btn-link btn-info btn-sm" title="Detail"><i data-feather='info'></i></a>
+                                                        {{-- <a href="{{ route('stoks.show', $stok->id) }}" class="btn btn-link btn-info btn-sm" title="Detail"><i data-feather='info'></i></a> --}}
                                                         <a href="{{ route('stoks.edit', $stok->id) }}" class="btn btn-link btn-warning btn-sm" title="Edit"><i data-feather='edit'></i></a>
                                                         <form action="{{ route('stoks.destroy', $stok->id) }}" method="POST" style="display:inline-block">
                                                             @csrf

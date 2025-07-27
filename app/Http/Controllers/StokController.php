@@ -43,6 +43,7 @@ class StokController extends Controller
             'tipe' => 'required|in:masuk,keluar',
             'jumlah' => 'required|integer',
             'tanggal' => 'required|date',
+            'kadaluarsa' => 'date',
         ]);
         Stok::create($validated + [
             'keterangan' => $request->keterangan
@@ -90,6 +91,7 @@ class StokController extends Controller
             'tipe' => 'required|in:masuk,keluar',
             'jumlah' => 'required|integer',
             'tanggal' => 'required|date',
+            'kadaluarsa' => 'date',
         ]);
         $stok->update($validated + [
             'keterangan' => $request->keterangan
