@@ -10,13 +10,13 @@ class StoreRequest extends FormRequest
     {
         return true;
     }
-    
+
     public function rules()
     {
         return [
             'name'                  => 'required',
             'email'                 => 'required',
-            'role'                 => 'required',
+            'level'                 => 'required',
             'password'              => 'required',
         ];
     }
@@ -26,7 +26,7 @@ class StoreRequest extends FormRequest
         return [
             'name.required'         => 'Nama tidak boleh kosong',
             'email.required'        => 'Email tidak boleh kosong',
-            'role.required'         => 'Role tidak boleh kosong',
+            'level.required'        => 'Role tidak boleh kosong',
             'password.required'     => 'Password tidak boleh kosong',
         ];
     }

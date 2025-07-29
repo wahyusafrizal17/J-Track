@@ -89,6 +89,14 @@ class UsersController extends Controller
     {
         $model = User::find($id);
         $input = $request->all();
+        
+        // Hapus password dari input jika kosong
+        if (empty($request->password)) {
+            unset($input['password']);
+        } else {
+            $input['password'] = Hash::make($request->password);
+        }
+        
         if ($request->hasFile('foto')) {
             $documentName = strtolower(str_replace(' ', '_', $request->name));
             $fileName = $documentName . '_foto_' . date('YmdHis') . '.png';
@@ -96,10 +104,7 @@ class UsersController extends Controller
             $request->file('foto')->move($path, $fileName);
             $input['foto'] = $fileName;
         }
-        if($request->password != ''){
-            $input['password'] = Hash::make($request->password);
-        }
-        
+
         $model->update($input);
 
         alert()->success('Data berhasil diubah', 'Berhasil');

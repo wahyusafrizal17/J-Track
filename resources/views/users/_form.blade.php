@@ -24,13 +24,13 @@
       </div>
   </div>
 
-  <div class="form-group row mt-2">
+  {{-- <div class="form-group row mt-2">
         <label for="inputEmail3" class="col-sm-2 col-form-label">Foto</label>
         <div class="col-sm-10">
         {{ Form::file('foto',['class'=>'form-control','placeholder'=>'Email'])}}
         @if ($errors->has('foto')) <span class="help-block" style="color:red">{{ $errors->first('foto') }}</span> @endif
         </div>
-    </div>
+    </div> --}}
   
   <div class="form-group row mt-2">
     <label for="inputEmail3" class="col-sm-2 col-form-label">Role</label>

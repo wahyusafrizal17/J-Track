@@ -24,10 +24,118 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/themes/bordered-layout.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/themes/semi-dark-layout.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/core/menu/menu-types/vertical-menu.css') }}">
+        <style>
+            /* CSS untuk hamburger menu mobile */
+            .navbar-toggler.d-lg-none {
+                display: none !important;
+            }
+            
+            @media (max-width: 991.98px) {
+                .navbar-toggler.d-lg-none {
+                    display: block !important;
+                    position: relative;
+                    z-index: 10000;
+                    margin-right: 10px;
+                }
+                
+                .navbar-toggler button {
+                    border: none;
+                    background: transparent;
+                    padding: 0.25rem 0.75rem;
+                    font-size: 1.25rem;
+                    line-height: 1;
+                    color: rgba(0, 0, 0, 0.5);
+                    border-radius: 0.25rem;
+                    transition: box-shadow 0.15s ease-in-out;
+                    cursor: pointer;
+                    min-width: 44px;
+                    min-height: 44px;
+                }
+                
+                .navbar-toggler:hover {
+                    color: rgba(0, 0, 0, 0.7);
+                }
+                
+                .navbar-toggler:focus {
+                    outline: 0;
+                    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+                }
+                
+                .navbar-toggler-icon {
+                    display: inline-block;
+                    width: 1.5em;
+                    height: 1.5em;
+                    vertical-align: middle;
+                    content: "";
+                    background: no-repeat center center;
+                    background-size: 100% 100%;
+                    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.7%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+                }
+                
+                .main-menu {
+                    position: fixed;
+                    top: 0;
+                    left: -280px;
+                    width: 280px;
+                    height: 100vh;
+                    z-index: 9999;
+                    transition: left 0.3s ease;
+                    background: #fff;
+                    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+                    overflow-y: auto;
+                }
+                
+                .main-menu.menu-open {
+                    left: 0 !important;
+                    opacity: 1 !important;
+                }
+                
+                .sidenav-overlay {
+                    display: none;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.5);
+                    z-index: 9998;
+                }
+                
+                .sidenav-overlay.show {
+                    display: block;
+                }
+                
+                .d-block.d-lg-none .nav-link {
+                    padding: 0.5rem;
+                    color: #6e6b7b;
+                }
+                
+                .d-block.d-lg-none .nav-link:hover {
+                    color: #5e50ee;
+                }
+                
+                /* Sembunyikan tombol close di desktop */
+                .d-block.d-lg-none {
+                    display: none !important;
+                }
+            }
+            
+            /* Tampilkan tombol close hanya di mobile */
+            @media (max-width: 991.98px) {
+                .d-block.d-lg-none {
+                    display: block !important;
+                }
+            }
+        </style>
     </head>
     <body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="">
         <nav class="header-navbar navbar navbar-expand-lg align-items-center floating-nav navbar-light navbar-shadow container-xxl">
             <div class="navbar-container d-flex content">
+                <div class="navbar-toggler d-lg-none">
+                    <button class="navbar-toggler" type="button" id="mobile-menu-toggle" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
                 <ul class="nav navbar-nav align-items-center ms-auto">
                     <li class="nav-item dropdown dropdown-user">
                         <a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -84,8 +192,13 @@
                     </li>
                     <li class="nav-item nav-toggle">
                         <a class="nav-link modern-nav-toggle pe-0" data-bs-toggle="collapse">
-                            <i class="d-block d-xl-none text-primary toggle-icon font-medium-4" data-feather="x"></i>
+                            {{-- <i class="d-block d-xl-none text-primary toggle-icon font-medium-4" data-feather="x"></i> --}}
                             <i class="d-none d-xl-block collapse-toggle-icon font-medium-4  text-primary" data-feather="disc" data-ticon="disc"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item d-block d-lg-none">
+                        <a class="nav-link modern-nav-toggle pe-0" onclick="closeMobileMenu()">
+                            <i class="d-block d-xl-none text-primary toggle-icon font-medium-4" data-feather="x"></i>
                         </a>
                     </li>
                 </ul>
@@ -208,6 +321,38 @@
 
             $(document).ready(function () {
                 $('#basic-datatables').DataTable();
+                
+                // Debug: cek apakah elemen ada
+                console.log('Mobile menu toggle element:', $('#mobile-menu-toggle').length);
+                console.log('Main menu element:', $('.main-menu').length);
+                
+                // Toggle sidebar menu untuk mobile
+                $(document).on('click', '#mobile-menu-toggle', function(e) {
+                    e.preventDefault();
+                    console.log('Mobile menu toggle clicked');
+                    $('.main-menu').toggleClass('menu-open');
+                    $('.sidenav-overlay').toggleClass('show');
+                });
+                
+                // Tutup menu ketika klik di overlay
+                $('.sidenav-overlay').on('click', function() {
+                    $('.main-menu').removeClass('menu-open');
+                    $(this).removeClass('show');
+                });
+                
+                // Tutup menu ketika klik di luar menu
+                $(document).on('click', function(e) {
+                    if (!$(e.target).closest('.main-menu, .navbar-toggler').length) {
+                        $('.main-menu').removeClass('menu-open');
+                        $('.sidenav-overlay').removeClass('show');
+                    }
+                });
+                
+                // Fungsi untuk menutup menu mobile
+                window.closeMobileMenu = function() {
+                    $('.main-menu').removeClass('menu-open');
+                    $('.sidenav-overlay').removeClass('show');
+                };
             });
         </script>
         <script>
