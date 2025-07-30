@@ -54,7 +54,7 @@
                                           <td>{{ $loop->iteration }}</td>
                                           <td>{{ $row->name}}</td>
                                           <td>{{ $row->email}}</td>
-                                          <td>{{ $row->role}}</td>
+                                          <td>{{ $row->level}}</td>
                                          <td class="text-center">
                                              <div class="form-button-action">
                                                 <a href="{{ route('users.edit',[$row->id]) }}" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-sm" data-original-title="Edit">
