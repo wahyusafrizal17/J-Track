@@ -35,6 +35,14 @@
                                 @if(session('success'))
                                     <div class="alert alert-success">{{ session('success') }}</div>
                                 @endif
+                                @if(session('error'))
+                                    <div class="alert alert-danger">{{ session('error') }}</div>
+                                @endif
+                                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                    <i data-feather="info"></i>
+                                    <strong>Info:</strong> Setiap penjualan akan otomatis mengurangi stok barang. Ketika penjualan dihapus, stok akan otomatis dikembalikan.
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
                                 <div class="table-responsive">
                                     <table id="basic-datatables" class="display table table-striped table-hover">
                                         <thead>
@@ -66,7 +74,7 @@
                                                         <form action="{{ route('penjualans.destroy', $penjualan->id) }}" method="POST" style="display:inline-block">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="btn btn-link btn-danger btn-sm" onclick="return confirm('Yakin hapus?')" title="Hapus"><i data-feather='trash-2'></i></button>
+                                                            <button type="submit" class="btn btn-link btn-danger btn-sm" onclick="return confirm('Yakin hapus penjualan {{ $penjualan->barang->nama ?? 'Unknown' }} sebanyak {{ $penjualan->jumlah }}? Stok akan otomatis dikembalikan.')" title="Hapus"><i data-feather='trash-2'></i></button>
                                                         </form>
                                                     </div>
                                                 </td>

@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Models\Stok;
+use App\Models\Penjualan;
 use App\Observers\StokObserver;
+use App\Observers\PenjualanObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -29,8 +31,9 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Register Stok observer
+        // Register observers
         Stok::observe(StokObserver::class);
+        Penjualan::observe(PenjualanObserver::class);
     }
 
     /**

@@ -85,6 +85,23 @@ Ketika data stok dihapus, sistem akan:
 4. **Feedback**: Memberikan pesan konfirmasi yang jelas kepada pengguna
 5. **Real-time Update**: Laporan stok otomatis terupdate karena dihitung berdasarkan data yang ada
 
+### Penjualan Otomatis Mengurangi Stok
+Ketika ada penjualan baru, sistem akan:
+1. **Validasi Stok**: Memastikan stok mencukupi sebelum penjualan
+2. **Pengurangan Otomatis**: Stok otomatis berkurang sesuai jumlah penjualan
+3. **Penyesuaian**: Jika jumlah penjualan diubah, stok otomatis disesuaikan
+4. **Pengembalian**: Jika penjualan dihapus, stok otomatis dikembalikan
+5. **Logging**: Mencatat semua aktivitas penjualan dan perubahan stok
+6. **Cache Management**: Membersihkan cache laporan stok agar data selalu akurat
+
+### Harga Jual Otomatis
+Form penjualan dilengkapi dengan:
+1. **Auto-fill Harga**: Harga jual otomatis terisi dengan harga barang
+2. **Informasi Lengkap**: Dropdown menampilkan stok dan harga barang
+3. **Override Manual**: Checkbox untuk mengubah harga jual secara manual
+4. **Validasi Real-time**: Perhitungan total otomatis saat harga atau jumlah berubah
+5. **User Experience**: Interface yang intuitif dan informatif
+
 ### Keamanan Data
 - Observer pattern untuk menangani event penghapusan
 - Validasi untuk mencegah penghapusan yang dapat menyebabkan inkonsistensi data

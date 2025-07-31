@@ -41,23 +41,34 @@ class PenjualanController extends Controller
     {
         $validated = $request->validate([
             'barang_id' => 'required|exists:barangs,id',
-            'jumlah' => 'required|integer',
-            'harga_jual' => 'required|numeric',
-            'total' => 'required|numeric',
+            'jumlah' => 'required|integer|min:1',
+            'harga_jual' => 'required|numeric|min:0',
+            'total' => 'required|numeric|min:0',
             'tanggal' => 'required|date',
         ]);
+        
+        // Check stock availability
+        $barang = Barang::with('stoks')->findOrFail($validated['barang_id']);
+        $masuk = $barang->stoks->where('tipe', 'masuk')->sum('jumlah');
+        $keluar = $barang->stoks->where('tipe', 'keluar')->sum('jumlah');
+        $availableStock = $masuk - $keluar;
+        
+        if ($availableStock < $validated['jumlah']) {
+            return redirect()->back()->withErrors([
+                'jumlah' => "Stok tidak mencukupi. Stok tersedia: {$availableStock}, yang diminta: {$validated['jumlah']}"
+            ])->withInput();
+        }
+        
         $penjualan = Penjualan::create($validated + [
             'pembayaran' => $request->pembayaran
         ]);
-        // Tambah record stok keluar
-        Stok::create([
-            'barang_id' => $validated['barang_id'],
-            'tipe' => 'keluar',
-            'jumlah' => $validated['jumlah'],
-            'keterangan' => 'Penjualan ID: ' . $penjualan->id,
-            'tanggal' => $validated['tanggal'],
-        ]);
-        return redirect()->route('penjualans.index')->with('success', 'Data penjualan berhasil ditambahkan');
+        
+        // Get barang info for feedback
+        $barang = $penjualan->barang;
+        
+        return redirect()->route('penjualans.index')->with('success', 
+            "Penjualan {$barang->nama} sebanyak {$penjualan->jumlah} berhasil ditambahkan. Stok otomatis berkurang."
+        );
     }
 
     /**
@@ -102,10 +113,17 @@ class PenjualanController extends Controller
             'total' => 'required|numeric',
             'tanggal' => 'required|date',
         ]);
+        
         $penjualan->update($validated + [
             'pembayaran' => $request->pembayaran
         ]);
-        return redirect()->route('penjualans.index')->with('success', 'Data penjualan berhasil diupdate');
+        
+        // Get barang info for feedback
+        $barang = $penjualan->barang;
+        
+        return redirect()->route('penjualans.index')->with('success', 
+            "Penjualan {$barang->nama} berhasil diupdate. Stok otomatis disesuaikan."
+        );
     }
 
     /**
@@ -116,9 +134,17 @@ class PenjualanController extends Controller
      */
     public function destroy($id)
     {
-        $penjualan = Penjualan::findOrFail($id);
+        $penjualan = Penjualan::with('barang')->findOrFail($id);
+        
+        // Store info before deletion for feedback
+        $barangNama = $penjualan->barang->nama ?? 'Unknown';
+        $jumlah = $penjualan->jumlah;
+        
         $penjualan->delete();
-        return redirect()->route('penjualans.index')->with('success', 'Data penjualan berhasil dihapus');
+        
+        return redirect()->route('penjualans.index')->with('success', 
+            "Penjualan {$barangNama} sebanyak {$jumlah} berhasil dihapus. Stok otomatis dikembalikan."
+        );
     }
 
     public function laporanPenjualan()
