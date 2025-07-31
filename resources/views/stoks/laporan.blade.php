@@ -27,6 +27,12 @@
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title">Rekap Stok Barang</h4>
+                                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                    <i data-feather="info"></i>
+                                    <strong>Info:</strong> Laporan stok dihitung secara real-time berdasarkan data stok yang ada. 
+                                    Ketika data stok dihapus, laporan akan otomatis terupdate.
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -49,7 +55,11 @@
                                                 <td>{{ $row['barang']->nama }}</td>
                                                 <td>{{ $row['masuk'] }}</td>
                                                 <td>{{ $row['keluar'] }}</td>
-                                                <td>{{ $row['saldo'] }}</td>
+                                                <td>
+                                                    <span class="badge {{ $row['saldo'] < 0 ? 'bg-danger' : ($row['saldo'] <= 10 ? 'bg-warning' : 'bg-success') }}">
+                                                        {{ $row['saldo'] }}
+                                                    </span>
+                                                </td>
                                             </tr>
                                             @endforeach
                                         </tbody>

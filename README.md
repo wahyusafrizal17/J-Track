@@ -64,3 +64,44 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+# J-Track
+
+Aplikasi manajemen stok dan penjualan.
+
+## Fitur Utama
+
+### Manajemen Stok
+- Input stok masuk dan keluar
+- Laporan stok real-time
+- Validasi penghapusan stok untuk mencegah saldo negatif
+- Cache untuk performa laporan yang lebih baik
+
+### Penghapusan Data Stok
+Ketika data stok dihapus, sistem akan:
+1. **Validasi**: Memastikan penghapusan tidak menyebabkan saldo stok negatif
+2. **Logging**: Mencatat semua aktivitas penghapusan untuk audit trail
+3. **Cache Management**: Membersihkan cache laporan stok agar data selalu akurat
+4. **Feedback**: Memberikan pesan konfirmasi yang jelas kepada pengguna
+5. **Real-time Update**: Laporan stok otomatis terupdate karena dihitung berdasarkan data yang ada
+
+### Keamanan Data
+- Observer pattern untuk menangani event penghapusan
+- Validasi untuk mencegah penghapusan yang dapat menyebabkan inkonsistensi data
+- Logging untuk audit trail
+- Error handling yang komprehensif
+
+## Teknologi
+- Laravel 10
+- PHP 8.1+
+- MySQL/PostgreSQL
+- Bootstrap 5
+- DataTables
+
+## Instalasi
+1. Clone repository
+2. Install dependencies: `composer install`
+3. Copy `.env.example` ke `.env`
+4. Generate key: `php artisan key:generate`
+5. Setup database dan jalankan migration: `php artisan migrate`
+6. Jalankan aplikasi: `php artisan serve`

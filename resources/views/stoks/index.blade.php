@@ -35,6 +35,9 @@
                                 @if(session('success'))
                                     <div class="alert alert-success">{{ session('success') }}</div>
                                 @endif
+                                @if(session('error'))
+                                    <div class="alert alert-danger">{{ session('error') }}</div>
+                                @endif
                                 <div class="table-responsive">
                                     <table id="basic-datatables" class="display table table-striped table-hover">
                                         <thead>
@@ -64,7 +67,7 @@
                                                         <form action="{{ route('stoks.destroy', $stok->id) }}" method="POST" style="display:inline-block">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="btn btn-link btn-danger btn-sm" onclick="return confirm('Yakin hapus?')" title="Hapus"><i data-feather='trash-2'></i></button>
+                                                            <button type="submit" class="btn btn-link btn-danger btn-sm" onclick="return confirm('Yakin hapus data stok {{ $stok->tipe }} untuk {{ $stok->barang->nama ?? 'Unknown' }} sebanyak {{ $stok->jumlah }}? Data yang dihapus akan otomatis terhapus dari laporan stok.')" title="Hapus"><i data-feather='trash-2'></i></button>
                                                         </form>
                                                     </div>
                                                 </td>
