@@ -91,6 +91,38 @@ Ketika data stok dihapus, sistem akan:
 - Logging untuk audit trail
 - Error handling yang komprehensif
 
+## Data Sample
+
+Aplikasi ini dilengkapi dengan data sample yang mencakup:
+
+### Users (Pengguna)
+- **Admin**: superadmin@gmail.com / password
+- **Kasir 1**: kasir1@jtrack.com / password
+- **Kasir 2**: kasir2@jtrack.com / password
+- **Manager**: manager@jtrack.com / password
+
+**Role yang tersedia**:
+- **Admin**: Akses penuh ke semua fitur
+- **Pengguna**: Akses terbatas untuk operasi sehari-hari
+
+### Barang (Produk)
+- **Makanan**: Nasi Goreng Spesial, Mie Goreng
+- **Minuman**: Es Teh Manis, Es Jeruk, Kopi Hitam
+- **Snack**: Kentang Goreng, Pisang Goreng, Tahu Goreng
+- **Bahan Baku**: Beras Premium, Minyak Goreng, Gula Pasir, Telur Ayam, Daging Ayam, Sayuran Mix
+- **Kemasan**: Piring Plastik, Gelas Plastik, Sendok Plastik, Tissue
+
+### Stok
+- 160 data stok dengan pergerakan masuk dan keluar
+- Data stok untuk 30 hari terakhir
+- Termasuk tanggal kadaluarsa untuk bahan baku
+
+### Penjualan
+- 296 data penjualan
+- Transaksi untuk 30 hari terakhir
+- Berbagai metode pembayaran (Tunai, Transfer, E-Wallet)
+- Harga jual dengan markup 30% dari harga beli
+
 ## Teknologi
 - Laravel 10
 - PHP 8.1+
@@ -104,4 +136,9 @@ Ketika data stok dihapus, sistem akan:
 3. Copy `.env.example` ke `.env`
 4. Generate key: `php artisan key:generate`
 5. Setup database dan jalankan migration: `php artisan migrate`
-6. Jalankan aplikasi: `php artisan serve`
+6. Jalankan seeder untuk data sample: `php artisan db:seed`
+7. Jalankan aplikasi: `php artisan serve`
+
+## Login Default
+- **Email**: superadmin@gmail.com
+- **Password**: password

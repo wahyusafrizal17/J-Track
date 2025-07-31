@@ -16,12 +16,31 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $password = Hash::make('password');
+        // Create admin user
+        User::create([
+            'name' => 'Administrator',
+            'email' => 'superadmin@gmail.com',
+            'password' => Hash::make('password'),
+            'level' => 'Admin',
+            'email_verified_at' => now(),
+        ]);
 
-        $data = [
-            ['name'=>'Super Admin',    'email'=>'superadmin@gmail.com',  'password'=> $password, 'level' => 'super'],
+        // Create sample users
+        $users = [
+            [
+                'name' => 'User Test',
+                'email' => 'usertest@gmail.com',
+                'password' => Hash::make('password'),
+                'level' => 'Pengguna',
+                'email_verified_at' => now(),
+            ],
         ];
 
-        User::insert($data);
+        foreach ($users as $user) {
+            User::create($user);
+        }
+
+        $this->command->info('UsersTableSeeder berhasil dijalankan!');
+        $this->command->info('Admin login: superadmin@gmail.com / password');
     }
 }
