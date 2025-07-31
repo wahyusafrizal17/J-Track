@@ -17,7 +17,7 @@ class PenjualanSeeder extends Seeder
     {
         // Get barang IDs that are not packaging (only food and drinks)
         $barangIds = Barang::whereNotIn('kategori', ['Kemasan', 'Bahan Baku'])->pluck('id')->toArray();
-        
+
         if (empty($barangIds)) {
             $this->command->error('Tidak ada data barang yang dapat dijual. Jalankan BarangSeeder terlebih dahulu!');
             return;
@@ -26,38 +26,32 @@ class PenjualanSeeder extends Seeder
         $penjualans = [];
         $now = Carbon::now();
 
-        // Generate sales data for the last 30 days
-        for ($day = 0; $day < 30; $day++) {
-            $date = $now->copy()->subDays($day);
-            
-            // Generate 5-15 sales per day
-            $salesPerDay = rand(5, 15);
-            
-            for ($i = 0; $i < $salesPerDay; $i++) {
-                $barangId = $barangIds[array_rand($barangIds)];
-                $barang = Barang::find($barangId);
-                
-                // Generate random quantity (1-5 for food, 1-3 for drinks)
-                $quantity = $barang->kategori === 'Minuman' ? rand(1, 3) : rand(1, 5);
-                
-                // Calculate selling price (slightly higher than purchase price)
-                $sellingPrice = $barang->harga * 1.3; // 30% markup
-                
-                $penjualans[] = [
-                    'barang_id' => $barangId,
-                    'jumlah' => $quantity,
-                    'harga_jual' => $sellingPrice,
-                    'total' => $sellingPrice * $quantity,
-                    'tanggal' => $date->format('Y-m-d'),
-                    'pembayaran' => ['Tunai', 'Transfer', 'E-Wallet'][array_rand(['Tunai', 'Transfer', 'E-Wallet'])],
-                    'created_at' => $date,
-                    'updated_at' => $date
-                ];
-            }
+        // Generate only 10 sales data
+        for ($i = 0; $i < 10; $i++) {
+            $date = $now->copy()->subDays(rand(1, 30));
+            $barangId = $barangIds[array_rand($barangIds)];
+            $barang = Barang::find($barangId);
+
+            // Generate random quantity (1-5 for food, 1-3 for drinks)
+            $quantity = $barang->kategori === 'Minuman' ? rand(1, 3) : rand(1, 5);
+
+            // Calculate selling price (slightly higher than purchase price)
+            $sellingPrice = $barang->harga * 1.3; // 30% markup
+
+            $penjualans[] = [
+                'barang_id' => $barangId,
+                'jumlah' => $quantity,
+                'harga_jual' => $sellingPrice,
+                'total' => $sellingPrice * $quantity,
+                'tanggal' => $date->format('Y-m-d'),
+                'pembayaran' => ['Tunai', 'Transfer', 'E-Wallet'][array_rand(['Tunai', 'Transfer', 'E-Wallet'])],
+                'created_at' => $date,
+                'updated_at' => $date
+            ];
         }
 
         // Sort by date
-        usort($penjualans, function($a, $b) {
+        usort($penjualans, function ($a, $b) {
             return strtotime($a['tanggal']) - strtotime($b['tanggal']);
         });
 

@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
         $this->command->info('- Users: 4 pengguna (admin, kasir, manager)');
         $this->command->info('- Barang: 18 produk berbagai kategori');
         $this->command->info('- Stok: 160 data pergerakan stok');
-        $this->command->info('- Penjualan: 296 transaksi penjualan');
+        $this->command->info('- Penjualan: 10 transaksi penjualan');
         $this->command->info('');
         $this->command->info('Login default: superadmin@gmail.com / password');
     }

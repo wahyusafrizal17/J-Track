@@ -135,7 +135,7 @@ Aplikasi ini dilengkapi dengan data sample yang mencakup:
 - Termasuk tanggal kadaluarsa untuk bahan baku
 
 ### Penjualan
-- 296 data penjualan
+- 10 data penjualan
 - Transaksi untuk 30 hari terakhir
 - Berbagai metode pembayaran (Tunai, Transfer, E-Wallet)
 - Harga jual dengan markup 30% dari harga beli

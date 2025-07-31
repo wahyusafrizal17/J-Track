@@ -52,9 +52,9 @@ Seeder ini dibuat untuk mengisi database dengan data sample yang realistis untuk
 **File**: `database/seeders/PenjualanSeeder.php`
 
 **Data yang dibuat**:
-- 296 transaksi penjualan
+- 10 transaksi penjualan
 - Data untuk 30 hari terakhir
-- 5-15 transaksi per hari
+- 1 transaksi per iterasi
 
 **Fitur**:
 - Hanya produk makanan dan minuman yang dijual
