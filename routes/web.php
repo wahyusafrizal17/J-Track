@@ -31,5 +31,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('stoks', StokController::class);
     Route::resource('penjualans', PenjualanController::class);
     Route::get('laporan/stok', [StokController::class, 'laporanStok'])->name('laporan.stok');
+    Route::get('laporan/stok/export-pdf', [StokController::class, 'exportPdf'])->name('laporan.stok.export');
     Route::get('laporan/penjualan', [PenjualanController::class, 'laporanPenjualan'])->name('laporan.penjualan');
+    Route::get('laporan/penjualan/export-pdf', [PenjualanController::class, 'exportPdf'])->name('laporan.penjualan.export');
 });

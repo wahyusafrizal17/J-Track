@@ -27,6 +27,11 @@
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title">Rekap Stok Barang</h4>
+                                <a href="{{ route('laporan.stok.export') }}" class="btn btn-danger btn-sm" target="_blank">
+                                    <i data-feather="file-text"></i> Export PDF
+                                </a>
+                            </div>
+                            <div class="card-body">
                                 <div class="alert alert-info alert-dismissible fade show" role="alert">
                                     <i data-feather="info"></i>
                                     <strong>Info:</strong> Laporan stok dihitung secara real-time berdasarkan data stok yang ada. 

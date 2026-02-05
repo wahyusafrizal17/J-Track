@@ -71,6 +71,13 @@ Aplikasi manajemen stok dan penjualan.
 
 ## Fitur Utama
 
+### Dashboard dengan Chart Grafik
+Dashboard dilengkapi dengan 4 chart grafik interaktif:
+1. **Penjualan 7 Hari Terakhir**: Line chart menampilkan trend penjualan harian
+2. **Omset 7 Hari Terakhir**: Line chart menampilkan trend omset harian
+3. **Pergerakan Stok**: Bar chart perbandingan stok masuk vs keluar
+4. **Penjualan per Kategori**: Doughnut chart distribusi penjualan per kategori
+
 ### Manajemen Stok
 - Input stok masuk dan keluar
 - Laporan stok real-time
@@ -101,6 +108,14 @@ Form penjualan dilengkapi dengan:
 3. **Override Manual**: Checkbox untuk mengubah harga jual secara manual
 4. **Validasi Real-time**: Perhitungan total otomatis saat harga atau jumlah berubah
 5. **User Experience**: Interface yang intuitif dan informatif
+
+### Export PDF Laporan
+Fitur export PDF untuk laporan:
+1. **Laporan Penjualan**: Export rekap penjualan ke PDF dengan format landscape
+2. **Laporan Stok**: Export rekap stok ke PDF dengan format landscape
+3. **Summary**: Total dan ringkasan data di footer PDF
+4. **Professional Layout**: Header, tabel, dan footer yang rapi
+5. **Auto Download**: PDF otomatis terunduh dengan nama file yang berisi tanggal
 
 ### Keamanan Data
 - Observer pattern untuk menangani event penghapusan

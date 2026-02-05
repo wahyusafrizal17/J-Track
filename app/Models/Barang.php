@@ -10,7 +10,7 @@ class Barang extends Model
     use HasFactory;
 
     protected $fillable = [
-        'kategori', 'nama', 'deskripsi', 'harga', 'satuan', 'stok_minimal'
+        'kategori', 'nama', 'deskripsi', 'harga_beli', 'harga_jual', 'satuan', 'stok_minimal'
     ];
 
     public function stoks()

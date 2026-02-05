@@ -19,7 +19,8 @@ class BarangSeeder extends Seeder
                 'kategori' => 'Makanan',
                 'nama' => 'Nasi Goreng Spesial',
                 'deskripsi' => 'Nasi goreng dengan telur, ayam, dan sayuran',
-                'harga' => 15000,
+                'harga_beli' => 10000,
+                'harga_jual' => 15000,
                 'satuan' => 'Porsi',
                 'stok_minimal' => 10
             ],
@@ -27,7 +28,8 @@ class BarangSeeder extends Seeder
                 'kategori' => 'Makanan',
                 'nama' => 'Mie Goreng',
                 'deskripsi' => 'Mie goreng dengan bumbu special',
-                'harga' => 12000,
+                'harga_beli' => 8000,
+                'harga_jual' => 12000,
                 'satuan' => 'Porsi',
                 'stok_minimal' => 15
             ],
@@ -35,7 +37,8 @@ class BarangSeeder extends Seeder
                 'kategori' => 'Minuman',
                 'nama' => 'Es Teh Manis',
                 'deskripsi' => 'Teh manis dengan es batu',
-                'harga' => 3000,
+                'harga_beli' => 2000,
+                'harga_jual' => 3000,
                 'satuan' => 'Gelas',
                 'stok_minimal' => 20
             ],
@@ -43,7 +46,8 @@ class BarangSeeder extends Seeder
                 'kategori' => 'Minuman',
                 'nama' => 'Es Jeruk',
                 'deskripsi' => 'Jeruk segar dengan es batu',
-                'harga' => 5000,
+                'harga_beli' => 3500,
+                'harga_jual' => 5000,
                 'satuan' => 'Gelas',
                 'stok_minimal' => 15
             ],
@@ -51,7 +55,8 @@ class BarangSeeder extends Seeder
                 'kategori' => 'Minuman',
                 'nama' => 'Kopi Hitam',
                 'deskripsi' => 'Kopi hitam tanpa gula',
-                'harga' => 8000,
+                'harga_beli' => 5500,
+                'harga_jual' => 8000,
                 'satuan' => 'Cup',
                 'stok_minimal' => 10
             ],
@@ -61,7 +66,8 @@ class BarangSeeder extends Seeder
                 'kategori' => 'Snack',
                 'nama' => 'Kentang Goreng',
                 'deskripsi' => 'Kentang goreng crispy',
-                'harga' => 8000,
+                'harga_beli' => 5500,
+                'harga_jual' => 8000,
                 'satuan' => 'Porsi',
                 'stok_minimal' => 12
             ],
@@ -69,7 +75,8 @@ class BarangSeeder extends Seeder
                 'kategori' => 'Snack',
                 'nama' => 'Pisang Goreng',
                 'deskripsi' => 'Pisang goreng dengan tepung crispy',
-                'harga' => 5000,
+                'harga_beli' => 3500,
+                'harga_jual' => 5000,
                 'satuan' => 'Porsi',
                 'stok_minimal' => 20
             ],
@@ -77,7 +84,8 @@ class BarangSeeder extends Seeder
                 'kategori' => 'Snack',
                 'nama' => 'Tahu Goreng',
                 'deskripsi' => 'Tahu goreng dengan bumbu special',
-                'harga' => 3000,
+                'harga_beli' => 2000,
+                'harga_jual' => 3000,
                 'satuan' => 'Porsi',
                 'stok_minimal' => 25
             ],
@@ -87,7 +95,8 @@ class BarangSeeder extends Seeder
                 'kategori' => 'Bahan Baku',
                 'nama' => 'Beras Premium',
                 'deskripsi' => 'Beras putih premium kualitas tinggi',
-                'harga' => 12000,
+                'harga_beli' => 8000,
+                'harga_jual' => 12000,
                 'satuan' => 'Kg',
                 'stok_minimal' => 50
             ],
@@ -95,7 +104,8 @@ class BarangSeeder extends Seeder
                 'kategori' => 'Bahan Baku',
                 'nama' => 'Minyak Goreng',
                 'deskripsi' => 'Minyak goreng kelapa sawit',
-                'harga' => 15000,
+                'harga_beli' => 10000,
+                'harga_jual' => 15000,
                 'satuan' => 'Liter',
                 'stok_minimal' => 20
             ],
@@ -103,7 +113,8 @@ class BarangSeeder extends Seeder
                 'kategori' => 'Bahan Baku',
                 'nama' => 'Gula Pasir',
                 'deskripsi' => 'Gula pasir putih',
-                'harga' => 13000,
+                'harga_beli' => 9000,
+                'harga_jual' => 13000,
                 'satuan' => 'Kg',
                 'stok_minimal' => 30
             ],
@@ -111,7 +122,8 @@ class BarangSeeder extends Seeder
                 'kategori' => 'Bahan Baku',
                 'nama' => 'Telur Ayam',
                 'deskripsi' => 'Telur ayam segar',
-                'harga' => 25000,
+                'harga_beli' => 18000,
+                'harga_jual' => 25000,
                 'satuan' => 'Kg',
                 'stok_minimal' => 40
             ],
@@ -119,7 +131,8 @@ class BarangSeeder extends Seeder
                 'kategori' => 'Bahan Baku',
                 'nama' => 'Daging Ayam',
                 'deskripsi' => 'Daging ayam segar',
-                'harga' => 35000,
+                'harga_beli' => 25000,
+                'harga_jual' => 35000,
                 'satuan' => 'Kg',
                 'stok_minimal' => 25
             ],
@@ -127,7 +140,8 @@ class BarangSeeder extends Seeder
                 'kategori' => 'Bahan Baku',
                 'nama' => 'Sayuran Mix',
                 'deskripsi' => 'Campuran sayuran segar',
-                'harga' => 8000,
+                'harga_beli' => 5500,
+                'harga_jual' => 8000,
                 'satuan' => 'Kg',
                 'stok_minimal' => 15
             ],
@@ -137,7 +151,8 @@ class BarangSeeder extends Seeder
                 'kategori' => 'Kemasan',
                 'nama' => 'Piring Plastik',
                 'deskripsi' => 'Piring plastik untuk makanan',
-                'harga' => 500,
+                'harga_beli' => 300,
+                'harga_jual' => 500,
                 'satuan' => 'Pcs',
                 'stok_minimal' => 100
             ],
@@ -145,7 +160,8 @@ class BarangSeeder extends Seeder
                 'kategori' => 'Kemasan',
                 'nama' => 'Gelas Plastik',
                 'deskripsi' => 'Gelas plastik untuk minuman',
-                'harga' => 300,
+                'harga_beli' => 200,
+                'harga_jual' => 300,
                 'satuan' => 'Pcs',
                 'stok_minimal' => 150
             ],
@@ -153,7 +169,8 @@ class BarangSeeder extends Seeder
                 'kategori' => 'Kemasan',
                 'nama' => 'Sendok Plastik',
                 'deskripsi' => 'Sendok plastik sekali pakai',
-                'harga' => 200,
+                'harga_beli' => 150,
+                'harga_jual' => 200,
                 'satuan' => 'Pcs',
                 'stok_minimal' => 200
             ],
@@ -161,7 +178,8 @@ class BarangSeeder extends Seeder
                 'kategori' => 'Kemasan',
                 'nama' => 'Tissue',
                 'deskripsi' => 'Tissue untuk membersihkan',
-                'harga' => 5000,
+                'harga_beli' => 3500,
+                'harga_jual' => 5000,
                 'satuan' => 'Roll',
                 'stok_minimal' => 20
             ]

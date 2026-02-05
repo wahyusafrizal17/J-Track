@@ -39,9 +39,10 @@ class BarangController extends Controller
         $validated = $request->validate([
             'kategori' => 'required',
             'nama' => 'required',
-            'harga' => 'required|numeric',
+            'harga_beli' => 'required|numeric|min:0',
+            'harga_jual' => 'required|numeric|min:0',
             'satuan' => 'required',
-            'stok_minimal' => 'required|integer',
+            'stok_minimal' => 'required|integer|min:0',
         ]);
         Barang::create($validated + [
             'deskripsi' => $request->deskripsi
@@ -86,9 +87,10 @@ class BarangController extends Controller
         $validated = $request->validate([
             'kategori' => 'required',
             'nama' => 'required',
-            'harga' => 'required|numeric',
+            'harga_beli' => 'required|numeric|min:0',
+            'harga_jual' => 'required|numeric|min:0',
             'satuan' => 'required',
-            'stok_minimal' => 'required|integer',
+            'stok_minimal' => 'required|integer|min:0',
         ]);
         $barang->update($validated + [
             'deskripsi' => $request->deskripsi

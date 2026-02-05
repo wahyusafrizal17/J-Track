@@ -21,10 +21,17 @@
         </div>
     </div>
     <div class="form-group row mt-2">
-        <label class="col-sm-2 col-form-label">Harga</label>
+        <label class="col-sm-2 col-form-label">Harga Beli</label>
         <div class="col-sm-10">
-            {{ Form::number('harga',null,['class'=>'form-control','placeholder'=>'Harga']) }}
-            @if ($errors->has('harga')) <span class="help-block" style="color:red">{{ $errors->first('harga') }}</span> @endif
+            {{ Form::number('harga_beli',null,['class'=>'form-control','placeholder'=>'Harga Beli', 'min'=>'0', 'step'=>'0.01']) }}
+            @if ($errors->has('harga_beli')) <span class="help-block" style="color:red">{{ $errors->first('harga_beli') }}</span> @endif
+        </div>
+    </div>
+    <div class="form-group row mt-2">
+        <label class="col-sm-2 col-form-label">Harga Jual</label>
+        <div class="col-sm-10">
+            {{ Form::number('harga_jual',null,['class'=>'form-control','placeholder'=>'Harga Jual', 'min'=>'0', 'step'=>'0.01']) }}
+            @if ($errors->has('harga_jual')) <span class="help-block" style="color:red">{{ $errors->first('harga_jual') }}</span> @endif
         </div>
     </div>
     <div class="form-group row mt-2">

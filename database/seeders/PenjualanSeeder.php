@@ -35,8 +35,8 @@ class PenjualanSeeder extends Seeder
             // Generate random quantity (1-5 for food, 1-3 for drinks)
             $quantity = $barang->kategori === 'Minuman' ? rand(1, 3) : rand(1, 5);
 
-            // Calculate selling price (slightly higher than purchase price)
-            $sellingPrice = $barang->harga * 1.3; // 30% markup
+            // Use harga_jual from barang
+            $sellingPrice = $barang->harga_jual;
 
             $penjualans[] = [
                 'barang_id' => $barangId,

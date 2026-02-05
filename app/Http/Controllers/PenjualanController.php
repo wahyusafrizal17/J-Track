@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Penjualan;
 use App\Models\Barang;
 use App\Models\Stok;
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
 
 class PenjualanController extends Controller
 {
@@ -154,5 +155,21 @@ class PenjualanController extends Controller
             ->groupBy('barang_id')
             ->get();
         return view('penjualans.laporan', compact('laporan'));
+    }
+
+    public function exportPdf()
+    {
+        $laporan = \App\Models\Penjualan::with('barang')
+            ->selectRaw('barang_id, sum(jumlah) as total_jumlah, sum(total) as total_penjualan')
+            ->groupBy('barang_id')
+            ->get();
+        
+        $totalOmset = $laporan->sum('total_penjualan');
+        $totalJumlah = $laporan->sum('total_jumlah');
+        
+        $pdf = PDF::loadView('penjualans.laporan-pdf', compact('laporan', 'totalOmset', 'totalJumlah'));
+        $pdf->setPaper('a4', 'landscape');
+        
+        return $pdf->download('laporan-penjualan-' . date('Y-m-d') . '.pdf');
     }
 }

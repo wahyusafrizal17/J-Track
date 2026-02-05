@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Stok;
 use App\Models\Barang;
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
 
 class StokController extends Controller
 {
@@ -169,6 +170,39 @@ class StokController extends Controller
         });
         
         return view('stoks.laporan', compact('laporan'));
+    }
+
+    public function exportPdf()
+    {
+        $laporan = cache()->remember('stock_report', 300, function () {
+            $laporan = [];
+            $barangs = \App\Models\Barang::with('stoks')->get();
+            
+            foreach ($barangs as $barang) {
+                // Calculate stock movements
+                $masuk = $barang->stoks->where('tipe', 'masuk')->sum('jumlah');
+                $keluar = $barang->stoks->where('tipe', 'keluar')->sum('jumlah');
+                $saldo = $masuk - $keluar;
+                
+                $laporan[] = [
+                    'barang' => $barang,
+                    'masuk' => $masuk,
+                    'keluar' => $keluar,
+                    'saldo' => $saldo
+                ];
+            }
+            
+            return $laporan;
+        });
+        
+        $totalMasuk = collect($laporan)->sum('masuk');
+        $totalKeluar = collect($laporan)->sum('keluar');
+        $totalSaldo = collect($laporan)->sum('saldo');
+        
+        $pdf = PDF::loadView('stoks.laporan-pdf', compact('laporan', 'totalMasuk', 'totalKeluar', 'totalSaldo'));
+        $pdf->setPaper('a4', 'landscape');
+        
+        return $pdf->download('laporan-stok-' . date('Y-m-d') . '.pdf');
     }
 
     /**

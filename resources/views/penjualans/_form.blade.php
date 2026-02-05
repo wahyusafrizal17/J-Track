@@ -15,9 +15,9 @@
                     @endphp
                     <option value="{{ $barang->id }}" 
                             data-stok="{{ $stok }}" 
-                            data-harga="{{ $barang->harga }}"
+                            data-harga="{{ $barang->harga_jual }}"
                             {{ old('barang_id', isset($penjualan) ? $penjualan->barang_id : '') == $barang->id ? 'selected' : '' }}>
-                        {{ $barang->nama }} (Stok: {{ $stok }} | Harga: Rp {{ number_format($barang->harga,0,',','.') }})
+                        {{ $barang->nama }} (Stok: {{ $stok }} | Harga: Rp {{ number_format($barang->harga_jual,0,',','.') }})
                     </option>
                 @endforeach
             </select>

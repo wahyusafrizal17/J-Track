@@ -42,7 +42,8 @@
                                                 <th style="width: 5%">No</th>
                                                 <th>Kategori</th>
                                                 <th>Nama</th>
-                                                <th>Harga</th>
+                                                <th>Harga Beli</th>
+                                                <th>Harga Jual</th>
                                                 <th>Satuan</th>
                                                 <th>Stok Minimal</th>
                                                 <th style="width: 20%" class="text-center">Aksi</th>
@@ -54,7 +55,8 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $barang->kategori }}</td>
                                                 <td>{{ $barang->nama }}</td>
-                                                <td>{{ number_format($barang->harga,0,',','.') }}</td>
+                                                <td>Rp {{ number_format($barang->harga_beli,0,',','.') }}</td>
+                                                <td>Rp {{ number_format($barang->harga_jual,0,',','.') }}</td>
                                                 <td>{{ $barang->satuan }}</td>
                                                 <td>{{ $barang->stok_minimal }}</td>
                                                 <td class="text-center">

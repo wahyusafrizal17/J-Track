@@ -27,6 +27,9 @@
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title">Rekap Penjualan Barang</h4>
+                                <a href="{{ route('laporan.penjualan.export') }}" class="btn btn-danger btn-sm" target="_blank">
+                                    <i data-feather="file-text"></i> Export PDF
+                                </a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">

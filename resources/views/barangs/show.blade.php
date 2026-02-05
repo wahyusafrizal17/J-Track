@@ -45,9 +45,15 @@
                                     </div>
                                 </div>
                                 <div class="form-group row mt-2">
-                                    <label class="col-sm-2 col-form-label">Harga</label>
+                                    <label class="col-sm-2 col-form-label">Harga Beli</label>
                                     <div class="col-sm-10">
-                                        <p class="form-control-static">Rp {{ number_format($barang->harga,0,',','.') }}</p>
+                                        <p class="form-control-static">Rp {{ number_format($barang->harga_beli,0,',','.') }}</p>
+                                    </div>
+                                </div>
+                                <div class="form-group row mt-2">
+                                    <label class="col-sm-2 col-form-label">Harga Jual</label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static">Rp {{ number_format($barang->harga_jual,0,',','.') }}</p>
                                     </div>
                                 </div>
                                 <div class="form-group row mt-2">
