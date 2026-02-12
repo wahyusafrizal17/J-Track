@@ -32,6 +32,13 @@ return new class extends Migration
                 \DB::statement('UPDATE barangs SET harga_jual = COALESCE(harga_jual, harga), harga_beli = COALESCE(harga_beli, harga)');
             }
         }
+
+        // Hapus kolom lama 'harga' jika masih ada (agar INSERT tidak error "Field 'harga' doesn't have a default value")
+        if (Schema::hasColumn('barangs', 'harga')) {
+            Schema::table('barangs', function (Blueprint $table) {
+                $table->dropColumn('harga');
+            });
+        }
     }
 
     /**
